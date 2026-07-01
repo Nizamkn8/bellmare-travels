@@ -38,46 +38,6 @@ const features = [
   },
 ];
 
-const containerVariants = {
-  hidden: {},
-  visible: {
-    transition: {
-      staggerChildren: 0.15,
-    },
-  },
-};
-
-const cardVariants = {
-  hidden: {
-    opacity: 0,
-    y: 40,
-  },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.6,
-      ease: "easeOut",
-    },
-  },
-};
-
-const iconVariants = {
-  hidden: {
-    scale: 0,
-    rotate: -90,
-  },
-  visible: {
-    scale: 1,
-    rotate: 0,
-    transition: {
-      duration: 0.5,
-      ease: "backOut",
-      delay: 0.2,
-    },
-  },
-};
-
 export default function WhyChooseUs() {
   return (
     <section
@@ -85,11 +45,12 @@ export default function WhyChooseUs() {
       style={{ background: "var(--background)" }}
     >
       <Container>
+        {/* Section Heading */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.7 }}
+          transition={{ duration: 0.6 }}
         >
           <SectionHeading
             centered
@@ -98,40 +59,43 @@ export default function WhyChooseUs() {
           />
         </motion.div>
 
-        <motion.div
-          className="mt-16 grid gap-8 md:grid-cols-2 lg:grid-cols-4"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-        >
-          {features.map((feature) => {
+        {/* Cards */}
+        <div className="mt-16 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+          {features.map((feature, index) => {
             const Icon = feature.icon;
 
             return (
               <motion.div
                 key={feature.title}
-                variants={cardVariants}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{
+                  duration: 0.6,
+                  delay: index * 0.15,
+                }}
                 whileHover={{
                   y: -10,
                   scale: 1.03,
                 }}
-                transition={{
-                  type: "spring",
-                  stiffness: 300,
-                  damping: 20,
-                }}
-                className="rounded-2xl border p-8 shadow-sm transition-all duration-300"
+                className="rounded-2xl border p-8 shadow-sm"
                 style={{
                   background: "var(--card)",
                   borderColor: "var(--border)",
                 }}
               >
+                {/* Icon */}
                 <motion.div
-                  variants={iconVariants}
+                  initial={{ scale: 0, rotate: -90 }}
+                  whileInView={{ scale: 1, rotate: 0 }}
+                  viewport={{ once: true }}
+                  transition={{
+                    duration: 0.5,
+                    delay: index * 0.15 + 0.15,
+                  }}
                   whileHover={{
-                    rotate: 10,
                     scale: 1.1,
+                    rotate: 10,
                   }}
                   className="mb-6 flex h-16 w-16 items-center justify-center rounded-xl"
                   style={{
@@ -145,6 +109,7 @@ export default function WhyChooseUs() {
                   />
                 </motion.div>
 
+                {/* Title */}
                 <h3
                   className="mb-4 text-xl font-semibold"
                   style={{ color: "var(--foreground)" }}
@@ -152,6 +117,7 @@ export default function WhyChooseUs() {
                   {feature.title}
                 </h3>
 
+                {/* Description */}
                 <p
                   className="leading-7"
                   style={{ color: "var(--muted)" }}
@@ -161,7 +127,7 @@ export default function WhyChooseUs() {
               </motion.div>
             );
           })}
-        </motion.div>
+        </div>
       </Container>
     </section>
   );

@@ -61,7 +61,6 @@ export default function Testimonials() {
 
         <Swiper
           modules={[Navigation, Pagination, Autoplay]}
-          navigation
           pagination={{ clickable: true }}
           autoplay={{
             delay: 4000,

@@ -91,3 +91,18 @@ h5,
 h6 {
   font-family: var(--font-heading);
 }
+
+.swiper {
+  padding-bottom: 50px;
+}
+
+.swiper-pagination-bullet {
+  width: 10px;
+  height: 10px;
+  opacity: 0.5;
+}
+
+.swiper-pagination-bullet-active {
+  background: var(--primary);
+  opacity: 1;
+}

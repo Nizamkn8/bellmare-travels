@@ -6,40 +6,6 @@ import { ArrowRight, PhoneCall } from "lucide-react";
 import Container from "@/components/common/Container";
 import Button from "@/components/common/Button";
 
-const containerVariants = {
-  hidden: {},
-  visible: {
-    transition: {
-      staggerChildren: 0.18,
-    },
-  },
-};
-
-const itemVariants = {
-  hidden: {
-    opacity: 0,
-    y: 40,
-  },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.7,
-      ease: "easeOut",
-    },
-  },
-};
-
-const buttonContainerVariants = {
-  hidden: {},
-  visible: {
-    transition: {
-      staggerChildren: 0.2,
-      delayChildren: 0.1,
-    },
-  },
-};
-
 export default function CTA() {
   return (
     <section className="relative overflow-hidden py-16 md:py-20 lg:py-24">
@@ -49,7 +15,7 @@ export default function CTA() {
       {/* Dark Overlay */}
       <div className="absolute inset-0 bg-black/60" />
 
-      {/* Cyan Blob */}
+      {/* Animated Cyan Blob */}
       <motion.div
         className="absolute -left-40 top-0 h-[600px] w-[600px] rounded-full bg-cyan-500/15 blur-[140px]"
         animate={{
@@ -59,11 +25,11 @@ export default function CTA() {
         transition={{
           duration: 18,
           repeat: Infinity,
-          ease: "easeInOut",
+          repeatType: "mirror",
         }}
       />
 
-      {/* Blue Blob */}
+      {/* Animated Blue Blob */}
       <motion.div
         className="absolute -right-40 bottom-0 h-[500px] w-[500px] rounded-full bg-sky-400/15 blur-[120px]"
         animate={{
@@ -73,24 +39,21 @@ export default function CTA() {
         transition={{
           duration: 20,
           repeat: Infinity,
-          ease: "easeInOut",
+          repeatType: "mirror",
         }}
       />
 
-      {/* Gradient Overlay */}
+      {/* Gradient */}
       <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-black/20" />
 
       <Container>
-        <motion.div
-          className="relative z-10 mx-auto max-w-4xl text-center text-white"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
-        >
+        <div className="relative z-10 mx-auto max-w-4xl text-center text-white">
           {/* Badge */}
           <motion.span
-            variants={itemVariants}
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
             className="inline-flex rounded-full border border-cyan-500/30 bg-cyan-500/10 px-5 py-2 text-sm font-medium uppercase tracking-widest text-cyan-400 backdrop-blur-sm"
           >
             Book Your Journey
@@ -98,7 +61,13 @@ export default function CTA() {
 
           {/* Heading */}
           <motion.h2
-            variants={itemVariants}
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{
+              duration: 0.6,
+              delay: 0.15,
+            }}
             className="mt-8 text-4xl font-bold leading-tight md:text-6xl"
           >
             Ready For Your
@@ -109,7 +78,13 @@ export default function CTA() {
 
           {/* Description */}
           <motion.p
-            variants={itemVariants}
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{
+              duration: 0.6,
+              delay: 0.3,
+            }}
             className="mx-auto mt-8 max-w-2xl text-lg leading-8 text-zinc-300"
           >
             Whether it's a family trip, corporate event, wedding,
@@ -119,17 +94,20 @@ export default function CTA() {
           </motion.p>
 
           {/* Buttons */}
-          <motion.div
-            variants={buttonContainerVariants}
-            className="mt-12 flex flex-wrap justify-center gap-5"
-          >
+          <div className="mt-12 flex flex-wrap justify-center gap-5">
             <motion.div
-              variants={itemVariants}
-              whileHover={{
-                scale: 1.05,
-                y: -4,
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{
+                duration: 0.6,
+                delay: 0.45,
               }}
-              whileTap={{ scale: 0.97 }}
+              whileHover={{
+                y: -5,
+                scale: 1.05,
+              }}
+              whileTap={{ scale: 0.98 }}
             >
               <Button className="flex items-center gap-2">
                 Book Now
@@ -138,12 +116,18 @@ export default function CTA() {
             </motion.div>
 
             <motion.div
-              variants={itemVariants}
-              whileHover={{
-                scale: 1.05,
-                y: -4,
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{
+                duration: 0.6,
+                delay: 0.6,
               }}
-              whileTap={{ scale: 0.97 }}
+              whileHover={{
+                y: -5,
+                scale: 1.05,
+              }}
+              whileTap={{ scale: 0.98 }}
             >
               <Button
                 variant="outline"
@@ -153,8 +137,8 @@ export default function CTA() {
                 +91 98765 43210
               </Button>
             </motion.div>
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
       </Container>
     </section>
   );

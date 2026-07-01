@@ -58,33 +58,47 @@ const services = [
   },
 ];
 
-const card = (service: (typeof services)[0]) => {
+const card = (service: (typeof services)[0], index: number) => {
   const Icon = service.icon;
 
   return (
     <motion.div
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{
+        duration: 0.6,
+        delay: index * 0.15,
+      }}
       whileHover={{
         y: -8,
         scale: 1.02,
       }}
-      transition={{
-        type: "spring",
-        stiffness: 300,
-        damping: 22,
-      }}
       className="group h-full rounded-3xl border border-(--border) bg-(--card) p-8 transition-all duration-300 hover:shadow-2xl"
     >
-      <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-cyan-500/10">
+      {/* Animated Icon */}
+      <motion.div
+        initial={{ scale: 0, rotate: -90 }}
+        whileInView={{ scale: 1, rotate: 0 }}
+        viewport={{ once: true }}
+        transition={{
+          duration: 0.5,
+          delay: index * 0.15 + 0.15,
+        }}
+        whileHover={{
+          scale: 1.1,
+          rotate: 10,
+        }}
+        className="mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-cyan-500/10"
+      >
         <Icon size={34} className="text-(--primary)" />
-      </div>
+      </motion.div>
 
       <h3 className="mb-4 text-2xl font-semibold text-(--foreground)">
         {service.title}
       </h3>
 
-      <p className="leading-7 text-(--muted)">
-        {service.description}
-      </p>
+      <p className="leading-7 text-(--muted)">{service.description}</p>
     </motion.div>
   );
 };
@@ -119,9 +133,9 @@ export default function Services() {
               disableOnInteraction: false,
             }}
           >
-            {services.map((service) => (
+            {services.map((service, index) => (
               <SwiperSlide key={service.title}>
-                {card(service)}
+                {card(service, index)}
               </SwiperSlide>
             ))}
           </Swiper>
@@ -130,18 +144,7 @@ export default function Services() {
         {/* Tablet & Desktop Grid */}
         <div className="mt-16 hidden gap-8 md:grid md:grid-cols-2 lg:grid-cols-3">
           {services.map((service, index) => (
-            <motion.div
-              key={service.title}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{
-                duration: 0.5,
-                delay: index * 0.12,
-              }}
-            >
-              {card(service)}
-            </motion.div>
+            <div key={service.title}>{card(service, index)}</div>
           ))}
         </div>
       </Container>

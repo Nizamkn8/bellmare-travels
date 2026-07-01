@@ -18,7 +18,7 @@ import Button from "@/components/common/Button";
 const slides = [
   {
     id: 1,
-    image: "/images/bus/bus1.png",
+    image: "/images/bus/bus2.png",
     badge: "Premium Tourist Bus",
     title: "Travel In",
     highlight: "Comfort & Style",
@@ -51,7 +51,6 @@ export default function Hero() {
       <Swiper
         modules={[Autoplay, Pagination, Navigation, EffectFade]}
         effect="fade"
-        navigation
         pagination={{ clickable: true }}
         autoplay={{
           delay: 5000,
@@ -91,7 +90,7 @@ export default function Hero() {
                   initial={{ opacity: 0, y: 60 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8 }}
-                  className="max-w-2xl text-white"
+                  className="max-w-2xl sm:px-0 px-6 text-white"
                 >
                   {/* Badge */}
                   <span className="inline-flex rounded-full border border-cyan-400/40 bg-cyan-500/20 px-4 py-2 text-sm font-medium text-cyan-300 backdrop-blur">
@@ -131,19 +130,19 @@ export default function Hero() {
                   {/* Stats */}
                   <div className="mt-16 grid max-w-md grid-cols-3 gap-8">
                     <div>
-                      <h3 className="text-4xl font-bold text-cyan-400">10+</h3>
+                      <h3 className="md:text-4xl sm:text-3xl text-2xl font-bold text-cyan-400">10+</h3>
                       <p className="mt-2 text-sm text-gray-300">
                         Years Experience
                       </p>
                     </div>
 
                     <div>
-                      <h3 className="text-4xl font-bold text-cyan-400">250+</h3>
+                      <h3 className="md:text-4xl sm:text-3xl text-2xl font-bold text-cyan-400">250+</h3>
                       <p className="mt-2 text-sm text-gray-300">Happy Trips</p>
                     </div>
 
                     <div>
-                      <h3 className="text-4xl font-bold text-cyan-400">
+                      <h3 className="md:text-4xl sm:text-3xl text-2xl font-bold text-cyan-400">
                         5000+
                       </h3>
                       <p className="mt-2 text-sm text-gray-300">

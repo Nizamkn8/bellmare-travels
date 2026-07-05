@@ -12,12 +12,9 @@ export default function CTA() {
       {/* Background Image */}
       <div className="absolute inset-0 bg-[url('/images/cta-bg.jpg')] bg-cover bg-center" />
 
-      {/* Dark Overlay */}
-      <div className="absolute inset-0 bg-black/60" />
-
       {/* Animated Cyan Blob */}
       <motion.div
-        className="absolute -left-40 top-0 h-[600px] w-[600px] rounded-full bg-cyan-500/15 blur-[140px]"
+        className="absolute -left-40 top-0 h-[600px] w-[600px] rounded-full bg-cyan-500/50 blur-[140px]"
         animate={{
           x: [-100, 200, -100],
           y: [0, 100, 0],
@@ -31,7 +28,7 @@ export default function CTA() {
 
       {/* Animated Blue Blob */}
       <motion.div
-        className="absolute -right-40 bottom-0 h-[500px] w-[500px] rounded-full bg-sky-400/15 blur-[120px]"
+        className="absolute -right-40 bottom-0 h-[500px] w-[500px] rounded-full bg-sky-400/40 blur-[120px]"
         animate={{
           x: [100, -150, 100],
           y: [50, -50, 50],
@@ -44,7 +41,7 @@ export default function CTA() {
       />
 
       {/* Gradient */}
-      <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-black/20" />
+      {/* <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-black/20" /> */}
 
       <Container>
         <div className="relative z-10 mx-auto max-w-4xl text-center text-white">
@@ -68,7 +65,7 @@ export default function CTA() {
               duration: 0.6,
               delay: 0.15,
             }}
-            className="mt-8 text-4xl font-bold leading-tight md:text-6xl"
+            className="mt-8 text-4xl font-bold leading-tight md:text-6xl text-cyan-600"
           >
             Ready For Your
             <span className="block text-cyan-400">
@@ -85,7 +82,7 @@ export default function CTA() {
               duration: 0.6,
               delay: 0.3,
             }}
-            className="mx-auto mt-8 max-w-2xl text-lg leading-8 text-zinc-300"
+            className="mx-auto mt-8 max-w-2xl text-lg leading-8 lg:text-zinc-500 text-white"
           >
             Whether it's a family trip, corporate event, wedding,
             airport transfer, or a Kerala tour, Bellmare Travels is
@@ -131,10 +128,10 @@ export default function CTA() {
             >
               <Button
                 variant="outline"
-                className="flex items-center gap-2 border-white/30 bg-white/10 text-white backdrop-blur-sm hover:bg-white hover:text-black"
+                className="flex items-center gap-2 border-white/30 bg-black/60 text-white backdrop-blur-sm hover:bg-black/50"
               >
                 <PhoneCall size={18} />
-                +91 98765 43210
+                +91 9847698881
               </Button>
             </motion.div>
           </div>

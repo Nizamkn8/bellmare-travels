@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Menu } from "lucide-react";
+import { usePathname } from "next/navigation";
 
 import ThemeToggle from "../common/ThemeToggle";
 import Logo from "./Logo";
@@ -9,12 +10,11 @@ import NavLinks from "./NavLinks";
 import MobileMenu from "./MobileMenu";
 import Button from "@/components/common/Button";
 
-interface NavbarProps {
-  scrolled: boolean;
-}
 
-export default function Navbar({ scrolled }: NavbarProps) {
+export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
+  const isHomePage = pathname === "/";
 
   return (
     <>
@@ -24,7 +24,7 @@ export default function Navbar({ scrolled }: NavbarProps) {
 
         {/* Desktop Navigation */}
         <div className="hidden lg:block">
-          <NavLinks scrolled={scrolled} />
+          <NavLinks />
         </div>
 
         {/* Right Side */}
@@ -35,7 +35,7 @@ export default function Navbar({ scrolled }: NavbarProps) {
           </div>
 
           {/* Theme Toggle */}
-          <ThemeToggle />
+          {isHomePage && <ThemeToggle />}
 
           {/* Mobile Menu Button */}
           <button
@@ -45,17 +45,14 @@ export default function Navbar({ scrolled }: NavbarProps) {
           >
             <Menu
               size={24}
-              className={scrolled ? "text-(--foreground)" : "text-white"}
+              className="text-white"
             />
           </button>
         </div>
       </nav>
 
       {/* Mobile Drawer */}
-      <MobileMenu
-        open={open}
-        onClose={() => setOpen(false)}
-      />
+      <MobileMenu open={open} onClose={() => setOpen(false)} />
     </>
   );
 }

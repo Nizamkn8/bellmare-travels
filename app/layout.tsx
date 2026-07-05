@@ -6,6 +6,7 @@ import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import ThemeProvider from "@/components/providers/ThemeProvider";
+import WhatsAppButton from "@/components/common/WhatsAppButton";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -24,7 +25,6 @@ export const metadata: Metadata = {
     template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,
-
   metadataBase: new URL(siteConfig.url),
 };
 
@@ -38,7 +38,8 @@ export default function RootLayout({
       <body className={`${inter.variable} ${poppins.variable}`}>
         <ThemeProvider>
           <Header />
-          {children}
+          <main>{children}</main>
+          <WhatsAppButton />
           <Footer />
         </ThemeProvider>
       </body>

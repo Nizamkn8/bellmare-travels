@@ -87,18 +87,12 @@ export default function Testimonials() {
                 {/* Rating */}
                 <div className="mb-6 flex gap-1 text-yellow-400">
                   {[...Array(5)].map((_, i) => (
-                    <Star
-                      key={i}
-                      size={18}
-                      fill="currentColor"
-                    />
+                    <Star key={i} size={18} fill="currentColor" />
                   ))}
                 </div>
 
                 {/* Review */}
-                <p className="leading-8 text-(--muted)">
-                  "{item.review}"
-                </p>
+                <p className="leading-8 text-(--muted)">"{item.review}"</p>
 
                 {/* User */}
                 <div className="mt-8">
@@ -106,9 +100,7 @@ export default function Testimonials() {
                     {item.name}
                   </h4>
 
-                  <p className="mt-1 text-sm text-(--primary)">
-                    {item.role}
-                  </p>
+                  <p className="mt-1 text-sm text-(--primary)">{item.role}</p>
                 </div>
               </div>
             </SwiperSlide>

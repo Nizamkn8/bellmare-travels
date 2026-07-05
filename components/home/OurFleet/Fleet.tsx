@@ -13,14 +13,14 @@ const fleet = [
     id: 1,
     name: "Luxury Volvo Coach",
     image: "/images/bus/bus1.png",
-    seats: "49 Seater",
+    seats: "39 Seater",
     features: ["AC", "WiFi", "Charging Port"],
   },
   {
     id: 2,
     name: "Premium Tourist Bus",
     image: "/images/bus/bus2.png",
-    seats: "35 Seater",
+    seats: "49 Seater",
     features: ["AC", "Luxury Seats", "Music"],
   },
   {

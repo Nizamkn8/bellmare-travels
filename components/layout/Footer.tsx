@@ -25,7 +25,7 @@ const services = [
 
 export default function Footer() {
   return (
-    <footer className="border-t border-[var(--border)] bg-[var(--background)] text-[var(--foreground)]">
+    <footer className="bg-[var(--background)] text-[var(--foreground)]">
       <Container>
         <div className="grid gap-12 py-20 md:grid-cols-2 lg:grid-cols-4">
           {/* Company */}

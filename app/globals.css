@@ -29,14 +29,14 @@
   /* Shadows */
   --shadow: rgba(0, 0, 0, 0.08);
 
-   --hero-overlay: rgba(84, 67, 67, 0);
+   /* --hero-overlay: rgba(84, 67, 67, 0);
 
   --hero-gradient: linear-gradient(
     to right,
     rgba(72, 49, 49, 0.4),
     rgba(87, 52, 52, 0.45),
     transparent
-  );
+  ); */
 
 }
 
@@ -63,14 +63,14 @@
 
 
 
-  --hero-overlay: rgba(255, 255, 255, 0.1);
+  /* --hero-overlay: rgba(255, 255, 255, 0.1);
 
   --hero-gradient: linear-gradient(
     to right,
     rgba(108, 71, 71, 0.5),
     rgba(91, 75, 75, 0.3),
     transparent
-  );
+  ); */
 }
 
 

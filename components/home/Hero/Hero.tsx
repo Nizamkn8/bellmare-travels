@@ -18,7 +18,7 @@ import Button from "@/components/common/Button";
 const slides = [
   {
     id: 1,
-    image: "/images/bus/bus2.png",
+    image: "/images/bus/bus-img-bright1.png",
     badge: "Premium Tourist Bus",
     title: "Travel In",
     highlight: "Comfort & Style",
@@ -27,7 +27,7 @@ const slides = [
   },
   {
     id: 2,
-    image: "/images/bus/bus2.png",
+    image: "/images/bus/bus-img-bright2.png",
     badge: "Corporate Travel",
     title: "Reliable",
     highlight: "Corporate Transport",
@@ -49,7 +49,7 @@ export default function Hero() {
   return (
     <section className="relative h-screen overflow-hidden">
       <Swiper
-        modules={[Autoplay, Pagination, Navigation, EffectFade]}
+        modules={[Pagination, Navigation, EffectFade]}
         effect="fade"
         pagination={{ clickable: true }}
         autoplay={{
@@ -71,7 +71,7 @@ export default function Hero() {
                 className="object-cover"
               />
 
-              <div
+              {/* <div
                 className="absolute inset-0"
                 style={{
                   background: "var(--hero-overlay)",
@@ -83,7 +83,7 @@ export default function Hero() {
                 style={{
                   background: "var(--hero-gradient)",
                 }}
-              />
+              /> */}
 
               <Container className="relative z-10 flex h-full items-center">
                 <motion.div
@@ -97,19 +97,21 @@ export default function Hero() {
                     {slide.badge}
                   </span>
 
-                  {/* Heading */}
-                  <h1 className="mt-6 text-2xl font-extrabold leading-tight lg:text-5xl">
-                    {slide.title}
 
-                    <span className="mt-2 block text-cyan-400">
-                      {slide.highlight}
-                    </span>
-                  </h1>
+                  <div className="p-5 mt-3 bg-black/40">
+                    {/* Heading */}
+                    <h1 className="text-2xl font-extrabold leading-tight lg:text-5xl">
+                      {slide.title}
 
-                  {/* Description */}
-                  <p className="mt-6 max-w-xl text-lg leading-8 text-gray-200">
-                    {slide.description}
-                  </p>
+                      <span className="mt-2 block">
+                        {slide.highlight}
+                      </span>
+                    </h1>
+                    {/* Description */}
+                    <p className="mt-6 max-w-xl text-lg leading-8 text-gray-200">
+                      {slide.description}
+                    </p>
+                  </div>
 
                   {/* Buttons */}
                   <div className="mt-10 flex flex-wrap gap-4">
@@ -129,19 +131,23 @@ export default function Hero() {
 
                   {/* Stats */}
                   <div className="mt-16 grid max-w-md grid-cols-3 gap-8">
-                    <div>
-                      <h3 className="md:text-4xl sm:text-3xl text-2xl font-bold text-cyan-400">10+</h3>
+                    <div className="bg-black/35 p-3">
+                      <h3 className="md:text-4xl sm:text-3xl text-2xl font-bold text-cyan-400">
+                        10+
+                      </h3>
                       <p className="mt-2 text-sm text-gray-300">
                         Years Experience
                       </p>
                     </div>
 
-                    <div>
-                      <h3 className="md:text-4xl sm:text-3xl text-2xl font-bold text-cyan-400">250+</h3>
+                    <div className="bg-black/35 p-3">
+                      <h3 className="md:text-4xl sm:text-3xl text-2xl font-bold text-cyan-400">
+                        250+
+                      </h3>
                       <p className="mt-2 text-sm text-gray-300">Happy Trips</p>
                     </div>
 
-                    <div>
+                    <div className="bg-black/35 p-3">
                       <h3 className="md:text-4xl sm:text-3xl text-2xl font-bold text-cyan-400">
                         5000+
                       </h3>
